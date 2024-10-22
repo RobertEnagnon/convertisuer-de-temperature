@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Convertisseur de Température</title>
+</head>
+<body>
+    <h1>Convertisseur de Température</h1>
+    <input type="number" id="tempInput" placeholder="Entrez une température">
+    <select id="scale">
+        <option value="CtoF">Celsius vers Fahrenheit</option>
+        <option value="FtoC">Fahrenheit vers Celsius</option>
+    </select>
+    <button onclick="convertirTemperature()">Convertir</button>
+    <p id="resultat"></p>
+
+    <script>
+        function convertirTemperature() {
+            let temperature = parseFloat(document.getElementById('tempInput').value);
+            let echelle = document.getElementById('scale').value;
+            let resultat;
+
+            if (echelle === 'CtoF') {
+                resultat = (temperature * 9/5) + 32;
+                document.getElementById('resultat').innerHTML = `${temperature}°C est égal à ${resultat.toFixed(2)}°F`;
+            } else {
+                resultat = (temperature - 32) * 5/9;
+                document.getElementById('resultat').innerHTML = `${temperature}°F est égal à ${resultat.toFixed(2)}°C`;
+            }
+        }
+    </script>
+</body>
+</html>
